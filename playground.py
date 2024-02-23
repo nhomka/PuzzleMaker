@@ -17,5 +17,5 @@ puzzle.read_solution_from_csv('killer_sudoku_solution.csv')
 print(f"puzzle: {puzzle.print_puzzle()}")
 print(f"solution: {puzzle.print_solution()}")
 
-puzzle.solve_killer()
+puzzle.solve()
 print(f"solved: {puzzle.print_puzzle()}")

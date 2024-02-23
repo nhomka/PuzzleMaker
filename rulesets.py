@@ -10,3 +10,9 @@ rules = {
     "QuarteredCircles",
     "XsAndOs"
 }
+
+class Rules:
+    name = ""
+    full_description = ""
+    format = ""
+    example_puzzle = None
