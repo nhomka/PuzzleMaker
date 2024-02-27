@@ -1,4 +1,5 @@
 from Sudoku import Sudoku
+from KillerSudoku import KillerSudoku
 
 puzzle = Sudoku()
 puzzle.read_puzzle_from_csv('sudoku_puzzle.csv')
@@ -15,7 +16,7 @@ print(f"solved:")
 puzzle.print_puzzle()
 print(f"is_solved: {puzzle.is_solved()}")
 
-puzzle = Sudoku()
+puzzle = KillerSudoku()
 puzzle.read_puzzle_from_csv('killer_sudoku_puzzle.csv')
 puzzle.read_solution_from_csv('killer_sudoku_solution.csv')
 
