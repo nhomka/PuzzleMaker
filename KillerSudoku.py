@@ -2,8 +2,8 @@ from Sudoku import Sudoku
 
 class KillerSudoku(Sudoku):
     
-    def is_valid(self, row, col, num):
-        if not super().is_valid(row, col, num):
+    def is_valid_cell(self, row, col, num):
+        if not super().is_valid_cell(row, col, num):
             return False
         
         cell_value = self.puzzle[row][col]
