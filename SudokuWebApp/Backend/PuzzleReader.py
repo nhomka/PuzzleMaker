@@ -3,3 +3,4 @@ class PuzzleReader():
         self.filename = filename
         self.puzzle = []
         self.read_puzzle()
+        
