@@ -3,6 +3,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import LandingPage from './landing-page/LandingPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      {/*<h1>{data.message}</h1>*/}
       <h1>{data.message}</h1>
     </div>
   );

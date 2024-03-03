@@ -1,5 +1,5 @@
-from pandas import read_csv
 from CellValue import CellValue
+from PuzzleReader import PuzzleReader
 
 class Sudoku:
     
@@ -8,7 +8,13 @@ class Sudoku:
         self.puzzle = None
         self.solution = None
         self.rules = {"standard": self.cell_value_is_valid}
-        
+        self.puzzleReader = PuzzleReader(self)
+    
+    def load_from_file(self, puzzle_file, solution_file = None):
+        self.puzzleReader.read_puzzle_from_csv(puzzle_file)
+        if solution_file:
+            self.puzzleReader.read_solution_from_csv(solution_file)
+    
     def add_rule(self, rule_name, rule_function):
         self.rules[rule_name] = rule_function
         
@@ -17,16 +23,6 @@ class Sudoku:
             for col in range(9):
                 cell_contents = str(self.raw_puzzle[row][col])
                 self.puzzle[row][col] = CellValue(cell_contents)
-
-    def read_puzzle_from_csv(self, file_path):
-        csv_puzzle = read_csv(file_path, header=None)
-        self.raw_puzzle = csv_puzzle.iloc[:9, :9].values.tolist()
-        self.puzzle = csv_puzzle.iloc[:9, :9].values.tolist()
-        self.update_raw_puzzle_to_cell_values()
-        
-    def read_solution_from_csv(self, file_path):
-        csv_solution = read_csv(file_path, header=None)
-        self.solution = csv_solution.iloc[:9, :9].values.tolist()
         
     def cell_value_is_valid(self, row, col, num):
         for x in range(9):
