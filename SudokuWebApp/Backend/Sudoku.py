@@ -8,21 +8,12 @@ class Sudoku:
         self.puzzle = None
         self.solution = None
         self.rules = {"standard": self.cell_value_is_valid}
-        self.puzzleReader = PuzzleReader(self)
     
     def load_from_file(self, puzzle_file, solution_file = None):
-        self.puzzleReader.read_puzzle_from_csv(puzzle_file)
+        puzzleReader = PuzzleReader(self)
+        puzzleReader.read_puzzle_from_csv(puzzle_file)
         if solution_file:
-            self.puzzleReader.read_solution_from_csv(solution_file)
-    
-    def add_rule(self, rule_name, rule_function):
-        self.rules[rule_name] = rule_function
-        
-    def update_raw_puzzle_to_cell_values(self):
-        for row in range(9):
-            for col in range(9):
-                cell_contents = str(self.raw_puzzle[row][col])
-                self.puzzle[row][col] = CellValue(cell_contents)
+            puzzleReader.read_solution_from_csv(solution_file)
         
     def cell_value_is_valid(self, row, col, num):
         for x in range(9):
@@ -59,7 +50,7 @@ class Sudoku:
             
     def print_puzzle(self):
         for row in range(9):
-            print([self.puzzle[row][col].value for col in range(9)])
+            print(self.puzzle[row])
             
     def print_solution(self):
         for row in range(9):

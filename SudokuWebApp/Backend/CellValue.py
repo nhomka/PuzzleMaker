@@ -12,3 +12,6 @@ class CellValue:
             rule_name, rule_value = rule.split(':')
             rule_id, rule_value = rule_value.split('-')
             self.rules[rule_name] = (rule_id, rule_value)
+            
+    def __str__(self):
+        return(self.value)
